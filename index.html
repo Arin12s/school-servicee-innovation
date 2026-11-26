@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>School Service Innovation</title>
+<style>
+:root{--navy:#17324d;--blue:#28658a;--gold:#e6ad45;--bg:#f4f7fa;--ink:#243447;--muted:#657789;--line:#dce5ec}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:linear-gradient(120deg,#17324d,#28658a);color:white;padding:34px 18px}
+.wrap{max-width:1050px;margin:auto;padding:0 16px}.eyebrow{letter-spacing:.12em;font-size:12px;font-weight:bold;color:#f4cf82}
+h1{font-size:clamp(27px,5vw,42px);line-height:1.12;margin:8px 0}header p{max-width:700px;color:#e5edf3;margin:10px 0 0}
+main{padding:24px 0 50px}.intro{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 4px 14px #17324d0a}
+.card h2{font-size:19px;margin:0 0 5px;color:var(--navy)}.num{font-size:12px;color:var(--blue);font-weight:bold;letter-spacing:.08em}
+.card p{color:var(--muted);font-size:14px;margin:5px 0 13px}
+.qr{width:150px;height:150px;margin:12px auto;display:flex;align-items:center;justify-content:center;background:#fff;border:1px dashed var(--line);border-radius:8px}
+.qr canvas,.qr img{max-width:140px;max-height:140px}
+a.btn,button{display:inline-block;background:var(--blue);color:white;border:0;border-radius:9px;padding:10px 14px;text-decoration:none;font-weight:bold;cursor:pointer;font-size:14px}
+a.secondary{background:#edf3f7;color:var(--navy)}.actions{display:flex;gap:8px;flex-wrap:wrap}
+section.service{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0;scroll-margin-top:15px}
+section.service h2{margin:0;color:var(--navy);font-size:24px}.tag{display:inline-block;background:#eaf2f7;color:#245575;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:bold;margin:7px 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#f7fafc;border-radius:12px;padding:15px}
+label{display:block;font-weight:bold;font-size:13px;margin:10px 0 5px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd7e0;border-radius:8px;background:white;font:inherit}textarea{min-height:85px;resize:vertical}
+form button{margin-top:12px}.note{font-size:12px;color:var(--muted)}.toplink{font-size:13px;color:var(--blue);font-weight:bold;text-decoration:none}
+footer{text-align:center;padding:22px;color:var(--muted);font-size:12px}
+@media(max-width:650px){.cols{grid-template-columns:1fr}.qr{margin:10px auto}}
+@media print{header .wrap>p,.intro .noprint,.actions{display:none}.card{break-inside:avoid}.qr{border:0}body{background:white}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">PROTOTIPE INOVASI MANAJEMEN BERBASIS SEKOLAH</div>
+<h1>SCHOOL SERVICE<br>INNOVATION</h1>
+<p>Sistem pelayanan sekolah terpadu melalui maket, QR Code, dan halaman informasi digital. Pindai QR untuk mengenal inovasi dan mencoba layanan setiap unit.</p>
+</div></header>
+<main class="wrap">
+<div class="intro">
+<h2 style="margin:0 0 6px;color:#17324d">Pusat QR Code — 7 Inovasi Sekolah</h2>
+<p style="margin:0 0 12px;color:#657789">Setiap kode mengarah ke bagian layanan yang berbeda pada halaman ini. Setelah situs dipublikasikan, QR Code akan mengikuti alamat situs secara otomatis.</p>
+<div class="actions noprint"><button onclick="window.print()">Cetak halaman QR</button><a class="btn secondary" href="#layanan">Lihat semua layanan</a></div>
+</div>
+<div class="grid" id="qrgrid"></div>
+
+<div id="layanan"></div>
+
+<section class="service" id="aspiration">
+<div class="num">INOVASI 01</div><h2>Aspiration Corner</h2><span class="tag">Pusat aspirasi dan pengaduan siswa</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Tempat bagi siswa untuk menyampaikan aspirasi, kritik, saran, atau pengaduan terkait pembelajaran, fasilitas, keamanan, dan kenyamanan sekolah. Pengaduan ditinjau oleh petugas yang ditunjuk sekolah.</p><h3>Alur penggunaan</h3><ol><li>Isi formulir di samping.</li><li>Pilih kategori aspirasi atau pengaduan.</li><li>Sampaikan kronologi atau saran dengan jelas.</li><li>Petugas sekolah menindaklanjuti melalui mekanisme yang ditetapkan.</li></ol></div>
+<div class="panel"><h3>Kirim aspirasi / pengaduan</h3><form onsubmit="demoSubmit(event,'Aspirasi/pengaduan')"><label>Nama (boleh dikosongkan)</label><input placeholder="Nama siswa"><label>Kategori</label><select required><option value="">Pilih kategori</option><option>Fasilitas sekolah</option><option>Pembelajaran</option><option>Kebersihan dan kenyamanan</option><option>Keamanan</option><option>Saran lainnya</option></select><label>Isi aspirasi atau pengaduan</label><textarea required placeholder="Tuliskan aspirasi atau pengaduan..."></textarea><button>Kirim (simulasi)</button></form></div></div></section>
+
+<section class="service" id="administration">
+<div class="num">INOVASI 02</div><h2>Smart Administration</h2><span class="tag">Pelayanan administrasi digital</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Media informasi untuk membantu siswa dan orang tua mengetahui jenis layanan administrasi, persyaratan, serta mengajukan permohonan awal secara lebih teratur.</p><ul><li>Informasi surat keterangan</li><li>Informasi legalisasi dokumen</li><li>Permohonan surat atau dokumen</li><li>Informasi jam pelayanan TU</li></ul></div>
+<div class="panel"><h3>Permohonan layanan</h3><form onsubmit="demoSubmit(event,'Permohonan administrasi')"><label>Nama pemohon</label><input required placeholder="Nama lengkap"><label>Kelas / hubungan dengan sekolah</label><input required placeholder="Contoh: VIII A / orang tua"><label>Jenis layanan</label><select required><option value="">Pilih layanan</option><option>Surat keterangan siswa</option><option>Legalisasi dokumen</option><option>Informasi administrasi</option><option>Lainnya</option></select><label>Keterangan</label><textarea placeholder="Tuliskan kebutuhan atau dokumen yang diperlukan"></textarea><button>Kirim permohonan (simulasi)</button></form></div></div></section>
+
+<section class="service" id="library">
+<div class="num">INOVASI 03</div><h2>Smart Library</h2><span class="tag">Perpustakaan dan layanan literasi</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Layanan perpustakaan yang memudahkan siswa mencari koleksi, mengetahui aturan peminjaman, serta menyampaikan usulan buku baru.</p><ul><li>Katalog contoh koleksi</li><li>Informasi tata tertib</li><li>Permohonan peminjaman</li><li>Usulan penambahan buku</li></ul><p><b>Contoh katalog:</b> Sejarah Indonesia, atlas, ensiklopedia, novel, dan buku pengetahuan umum.</p></div>
+<div class="panel"><h3>Layanan perpustakaan</h3><form onsubmit="demoSubmit(event,'Layanan perpustakaan')"><label>Nama siswa</label><input required placeholder="Nama lengkap"><label>Kelas</label><input required placeholder="Contoh: VII B"><label>Jenis layanan</label><select required><option value="">Pilih layanan</option><option>Menanyakan ketersediaan buku</option><option>Permohonan peminjaman</option><option>Usulan buku baru</option><option>Saran layanan perpustakaan</option></select><label>Judul buku / pesan</label><textarea placeholder="Tuliskan judul buku atau pesan"></textarea><button>Kirim (simulasi)</button></form></div></div></section>
+
+<section class="service" id="health">
+<div class="num">INOVASI 04</div><h2>Healthy School Service</h2><span class="tag">Informasi dan layanan UKS</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Media informasi UKS yang menyediakan panduan kesehatan dasar, informasi kebersihan diri, jadwal kegiatan kesehatan, dan cara meminta bantuan petugas UKS.</p><ul><li>Panduan pertolongan pertama dasar</li><li>Informasi perilaku hidup bersih dan sehat</li><li>Jadwal kegiatan kesehatan</li><li>Pencatatan kebutuhan perlengkapan UKS oleh petugas</li></ul><p class="note">Untuk kondisi darurat, segera hubungi guru atau petugas UKS secara langsung. Formulir ini bukan pengganti pertolongan medis.</p></div>
+<div class="panel"><h3>Permintaan bantuan / informasi UKS</h3><form onsubmit="demoSubmit(event,'Layanan UKS')"><label>Nama siswa</label><input required placeholder="Nama lengkap"><label>Kelas</label><input required placeholder="Kelas"><label>Keperluan</label><select required><option value="">Pilih keperluan</option><option>Meminta bantuan petugas UKS</option><option>Informasi kegiatan kesehatan</option><option>Informasi fasilitas UKS</option><option>Usulan perlengkapan UKS</option></select><label>Keterangan (jangan masukkan data medis sensitif)</label><textarea placeholder="Tuliskan keterangan singkat"></textarea><button>Kirim (simulasi)</button></form></div></div></section>
+
+<section class="service" id="history">
+<div class="num">INOVASI 05</div><h2>History Digital Lab</h2><span class="tag">Laboratorium sejarah interaktif</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Ruang belajar sejarah yang memadukan koleksi, peta, foto, miniatur, dan sumber digital agar siswa dapat mengeksplorasi peristiwa sejarah secara aktif.</p><ul><li>Galeri tokoh dan peristiwa</li><li>Informasi koleksi melalui QR</li><li>Peta dan linimasa sejarah</li><li>Kuis dan proyek sejarah</li></ul></div>
+<div class="panel"><h3>Eksplorasi dan kuis sejarah</h3><form onsubmit="historyQuiz(event)"><label>Pilih topik</label><select id="histopic"><option>Kerajaan Sriwijaya</option><option>Pergerakan Nasional</option><option>Proklamasi Kemerdekaan</option></select><label>Pertanyaan contoh: Kerajaan Sriwijaya dikenal sebagai kerajaan bercorak apa?</label><select id="histanswer"><option value="">Pilih jawaban</option><option>Hindu-Buddha</option><option>Islam</option><option>Kristen</option></select><button>Cek jawaban</button><p id="quizresult" aria-live="polite"></p></form></div></div></section>
+
+<section class="service" id="classroom">
+<div class="num">INOVASI 06</div><h2>Smart Classroom</h2><span class="tag">Pembelajaran dan refleksi digital</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Media pendukung kegiatan belajar yang menyediakan akses materi, presensi kegiatan, dan refleksi pembelajaran melalui satu halaman digital.</p><ul><li>Materi atau tautan belajar</li><li>Presensi kegiatan kelas</li><li>Refleksi pemahaman siswa</li><li>Masukan untuk pembelajaran</li></ul></div>
+<div class="panel"><h3>Refleksi pembelajaran</h3><form onsubmit="demoSubmit(event,'Refleksi pembelajaran')"><label>Nama</label><input required placeholder="Nama siswa"><label>Kelas</label><input required placeholder="Kelas"><label>Materi hari ini</label><input required placeholder="Nama materi"><label>Seberapa paham kamu?</label><select required><option value="">Pilih</option><option>Sangat memahami</option><option>Cukup memahami</option><option>Masih membutuhkan penjelasan</option></select><label>Hal yang ingin ditanyakan</label><textarea placeholder="Tuliskan pertanyaan atau masukan"></textarea><button>Kirim refleksi (simulasi)</button></form></div></div></section>
+
+<section class="service" id="canteen">
+<div class="num">INOVASI 07</div><h2>Smart Canteen</h2><span class="tag">Informasi, kebersihan, dan pengaduan kantin</span>
+<div class="cols"><div><h3>Penjelasan layanan</h3><p>Media untuk menyampaikan informasi kantin dan menerima masukan siswa mengenai kebersihan, pelayanan, harga, serta kualitas makanan. Pengelola sekolah dapat menggunakan masukan sebagai bahan evaluasi.</p><ul><li>Informasi menu dan harga</li><li>Penilaian kebersihan kantin</li><li>Pengaduan pelayanan atau harga</li><li>Usulan makanan sehat</li></ul></div>
+<div class="panel"><h3>Penilaian / pengaduan kantin</h3><form onsubmit="demoSubmit(event,'Pengaduan kantin')"><label>Nama (boleh dikosongkan)</label><input placeholder="Nama siswa"><label>Jenis laporan</label><select required><option value="">Pilih jenis</option><option>Kebersihan kantin</option><option>Harga tidak sesuai</option><option>Kualitas makanan</option><option>Pelayanan</option><option>Saran menu sehat</option></select><label>Penilaian layanan</label><select><option>Belum memberi penilaian</option><option>Sangat baik</option><option>Baik</option><option>Cukup</option><option>Perlu perbaikan</option></select><label>Uraian</label><textarea required placeholder="Tuliskan masukan atau pengaduan"></textarea><button>Kirim (simulasi)</button></form></div></div></section>
+<footer>SMART SCHOOL SERVICE INNOVATION · Prototipe untuk presentasi Manajemen Berbasis Sekolah<br>Gunakan data contoh saat demonstrasi. Jangan masukkan data pribadi atau kesehatan yang sensitif.</footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const items=[
+['01','Aspiration Corner','Aspirasi dan pengaduan siswa','aspiration'],
+['02','Smart Administration','Pelayanan administrasi digital','administration'],
+['03','Smart Library','Katalog, peminjaman, dan usulan buku','library'],
+['04','Healthy School Service','Informasi dan layanan UKS','health'],
+['05','History Digital Lab','Galeri dan kuis sejarah','history'],
+['06','Smart Classroom','Materi dan refleksi pembelajaran','classroom'],
+['07','Smart Canteen','Penilaian dan pengaduan kantin','canteen']
+];
+const base=location.href.split('#')[0];
+const grid=document.getElementById('qrgrid');
+items.forEach(([n,name,desc,id])=>{
+ const card=document.createElement('article');card.className='card';
+ card.innerHTML=`<div class="num">QR CODE ${n}</div><h2>${name}</h2><p>${desc}</p><div class="qr" id="qr${n}">QR akan tampil setelah halaman dimuat</div><div class="actions"><a class="btn" href="#${id}">Buka layanan</a><a class="btn secondary" href="${base}#${id}" target="_blank">Buka tautan</a></div>`;
+ grid.appendChild(card);
+ if(window.QRCode){document.getElementById('qr'+n).innerHTML='';new QRCode(document.getElementById('qr'+n),{text:base+'#'+id,width:140,height:140,correctLevel:QRCode.CorrectLevel.M});}
+});
+function demoSubmit(e,name){e.preventDefault();alert(name+' berhasil dicatat dalam simulasi prototipe. Untuk penggunaan nyata, hubungkan formulir ke Google Forms atau sistem resmi sekolah.');e.target.reset();}
+function historyQuiz(e){e.preventDefault();const a=document.getElementById('histanswer').value;document.getElementById('quizresult').textContent=a==='Hindu-Buddha'?'Benar! Sriwijaya merupakan kerajaan bercorak Buddha.':'Belum tepat. Coba lagi!';}
+</script>
+</body></html>
